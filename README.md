@@ -3,6 +3,12 @@
 
 추론의 실행 방법(How to Run)은 아래에서 확인하실 수 있습니다.
 
+### Baseline
+|           Model           | Accuracy(%) |
+| :-----------------------: | :---------: |
+|        **Qwen3-8B**        |    0.479    |
+| **HyperCLOVAX Text 1.5B** |    0.418    |
+
 ## 리포지토리 구조 (Repository Structure)
 ```
 # 추론에 필요한 리소스들을 보관하는 디렉토리
@@ -38,9 +44,12 @@ src
 ## 실행 방법 (How to Run)
 ### 추론 (Inference)
 ```
-(실제 코드는 25년 7월 중순에 업데이트 예정)
+CUDA_VISIBLE_DEVICES=0 python -m run.test \
+    --input resource/data/sample.json \
+    --output result.json \
+    --model_id Qwen/Qwen3-8B \
+    --debug True
 ```
-
 
 ## Reference
 국립국어원 인공지능 (AI)말평 (https://kli.korean.go.kr/benchmark)  
